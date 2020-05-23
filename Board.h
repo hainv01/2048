@@ -19,10 +19,10 @@ private:
     int board[Board_Size][Board_Size];
     int Empty = 0;
     int score = 0;
-    int BonusScore(int num);
 public:
     Board();
     int GetScore();
+    int BonusScore(int num);
     int GetNumAt_xy(int x, int y);
     int Random(int min, int max);
     void PutNewNum();

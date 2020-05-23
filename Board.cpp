@@ -31,7 +31,7 @@ int Board::GetScore() {
 }
 
 int Board::GetNumAt_xy(int x,int y) {
-    return power(board[x][y]);
+    return board[x][y];
 }
 
 int Board::Random(int min, int max) {
@@ -43,17 +43,17 @@ int Board::BonusScore(int num) {
 }
 
 void Board::PutNewNum() {
-    int hash_map[Board_Size*Board_Size];
+    int matrix[Board_Size*Board_Size];
     int Empty_Num = 0;
     for (int i = 0; i < Board_Size; i++) {
         for (int j = 0; j < Board_Size; j++) {
             if (board[i][j] == Empty) {
-                hash_map[Empty_Num++] = i * Board_Size + j;
+                matrix[Empty_Num++] = i * Board_Size + j;
             }
         }
     }
     int tmp = Random(0, Empty_Num-1);
-    board[hash_map[tmp] / Board_Size][hash_map[tmp] % Board_Size] = Random(1, 2);
+    board[matrix[tmp] / Board_Size][matrix[tmp] % Board_Size] = Random(1, 2);
 }
 
 bool Board::Move(int dir) {
